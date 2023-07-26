@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Allotment</title>
+    <link rel="shortcut icon" href="vishnulogo.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        /* box-sizing: border-box; */
+    }
+
+    #toggle {
+        position: fixed;
+        top: 20px;
+        width: 60px;
+        height: 60px;
+        background: #03a9f4;
+        cursor: pointer;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+        /* background: linear-gradient(45deg,#fdba61,#ff5acd); */
+    }
+    .cards {
+        position: relative;
+        width: 350px;
+        height: 270px;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(45deg, #fdba61, #ff5acd);
+        transition: 0.5s;
+    }
+
+    .cards:hover {
+        height: 300px;
+    }
+
+    .imgBox {
+        position: absolute;
+        left: 50%;
+        top: -50px;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 100px;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        transition: 0.5s;
+
+
+
+    }
+
+    .imgBox img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20vh;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    .cards .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+
+    .cards .content .details {
+        padding: 40px;
+        text-align: center;
+        width: 100%;
+        transition: 0.5s;
+        transform: translateY(150px);
+
+    }
+
+    .cards:hover .content .details {
+        transform: translateY(0px);
+    }
+    .cards .content .details .data {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+
+    .cards .content .details .data h3 {
+        font-size: 1em;
+        color: #555;
+        line-height: 1.2em;
+        font-weight: 600;
+    }
+
+    .cards .content .details .data h3 span {
+        font-size: 0.85em;
+        font-weight: 400;
+        opacity: 0.5;
+
+    }
+
+    .cards .content .details .ActionBtn button {
+        padding: 10px 30px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        font-weight: 500;
+        background: #ff5acd;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .cards .content .details .ActionBtn button:nth-child(2) {
+        border: 1px solid #999;
+        color: #999;
+        background: #fff;
+    }
+
+    #card {
+        margin-right: 5%;
+    }
+
+    .section {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-left: 20px;
+        ;
+    }
+</style>
+
+<body>
+
+
+    <h2 style="margin:10px 10px;">AC HOSTELS</h2>
+    <br><br>
+    <!-- <br><br> -->
+    <section style="text-align:center ;">
+        <div class="cards" id="card">
+            <div class="imgBox">
+                <img src="https://a.hwstatic.com/image/upload/f_auto,q_auto/v1/propertyimages/1/11398/q3hq1lh9tepnvlxy05vg"
+                    alt="">
+            </div>
+            <div class="content">
+                <div class="details">
+                    <h2>Spoorthi</h2>
+                    <div class="data">
+                        <h3>People<br> <span>8 members</span></h3>
+                        <h3>Fee <br> <span>Rs.70,000</span></h3>
+                        <h3>Facility <br><span>Fridge</span></h3>
+
+
+                    </div>
+                    <div class="ActionBtn">
+                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                            Availability</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="cards" id="card">
+            <div class="imgBox">
+                <img
+                    src="https://th.bing.com/th/id/R.acc3b3833d521b45db77207a8b32989b?rik=RQdD7S93a%2b90nQ&riu=http%3a%2f%2fpix10.agoda.net%2fhotelImages%2f335%2f335846%2f335846_14040712250018984792.jpg&ehk=Tsd4Y9PEbpM2Qp46fvfcHUd20sSfui8mOsJPFq0Av3w%3d&risl=&pid=ImgRaw&r=0">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Bhuvana</h2>
+                        <div class="data">
+                            <h3>People<br> <span>4 members</span></h3>
+                            <h3>Fee <br> <span>Rs.80,000</span></h3>
+                            <h3>Facility <br><span>Fridge</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                                Availability</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="cards" id="card">
+                <div class="imgBox">
+                    <img src="https://th.bing.com/th/id/R.30f3f9b329945ed389e19ccfe2250fd5?rik=bd6CLlW6Ti7oLw&riu=http%3a%2f%2fwww.villa.ch%2fimg%2fGZyV-iRgosE%2f480%2f20190502-MAMO-Photography-0055-2500px.jpg.jpg&ehk=Bf7Nnuck67moD0FqOOkev8nXP3I5ULnTlvXxjQQQIws%3d&risl=&pid=ImgRaw&r=0"
+                        alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Rohini</h2>
+                        <div class="data">
+                            <h3>People<br> <span>3 members</span></h3>
+                            <h3>Fee <br> <span>Rs.75,000</span></h3>
+                            <h3>Facility <br> <span>Fridge</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                                Availability</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+        </section>
+        <h2 style="margin:10px 10px;">NON-AC HOSTELS</h2>
+        <br><br>
+        <!-- <br><br> -->
+        <section style="text-align:center ;">
+            <div class="cards" id="card">
+                <div class="imgBox">
+                    <!-- <img src="https://a.hwstatic.com/image/upload/f_auto,q_auto/v1/propertyimages/1/11398/q3hq1lh9tepnvlxy05vg" alt=""> -->
+                    <img src="https://th.bing.com/th/id/R.30f3f9b329945ed389e19ccfe2250fd5?rik=bd6CLlW6Ti7oLw&riu=http%3a%2f%2fwww.villa.ch%2fimg%2fGZyV-iRgosE%2f480%2f20190502-MAMO-Photography-0055-2500px.jpg.jpg&ehk=Bf7Nnuck67moD0FqOOkev8nXP3I5ULnTlvXxjQQQIws%3d&risl=&pid=ImgRaw&r=0"
+                        alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Neelima</h2>
+                        <div class="data">
+                            <h3>People<br> <span>4 members</span></h3>
+                            <h3>Fee <br> <span>Rs.73,000</span></h3>
+                            <h3>Type <br><span>Attached</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                                Availability</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards" id="card">
+                <div class="imgBox">
+                    <img src="https://static.trip101.com/paragraph_media/pictures/002/094/595/large/23939362.jpg?1596652429"
+                        alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Bhargavi</h2>
+                        <div class="data">
+                            <h3>People<br> <span>4 members</span></h3>
+                            <h3>Fee <br> <span>Rs.73,000</span></h3>
+                            <h3>Type <br><span>Attached</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                                Availability</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="cards" id="card">
+                <div class="imgBox">
+                    <!-- <img src="https://th.bing.com/th/id/R.30f3f9b329945ed389e19ccfe2250fd5?rik=bd6CLlW6Ti7oLw&riu=http%3a%2f%2fwww.villa.ch%2fimg%2fGZyV-iRgosE%2f480%2f20190502-MAMO-Photography-0055-2500px.jpg.jpg&ehk=Bf7Nnuck67moD0FqOOkev8nXP3I5ULnTlvXxjQQQIws%3d&risl=&pid=ImgRaw&r=0" alt=""> -->
+                    <img src="https://a.hwstatic.com/image/upload/f_auto,q_auto/v1/propertyimages/1/11398/q3hq1lh9tepnvlxy05vg"
+                        alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Mrudhula</h2>
+                        <div class="data">
+                            <h3>People<br> <span>4 members</span></h3>
+                            <h3>Fee <br> <span>Rs.75,000</span></h3>
+                            <h3>Type <br> <span>Attached</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                                Availability</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+    
+        </section>
+        <section style="text-align:center ;">
+            <div class="cards" id="card">
+                <div class="imgBox">
+                    <img src="https://static.trip101.com/paragraph_media/pictures/002/094/595/large/23939362.jpg?1596652429"
+                        alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Sarada</h2>
+                        <div class="data">
+                            <h3>People<br> <span>4 members</span></h3>
+                            <h3>Fee <br> <span>Rs.70,000</span></h3>
+                            <h3>Type <br><span>Common</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                                Availability</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="cards" id="card">
+                <div class="imgBox">
+                    <img src="https://a.hwstatic.com/image/upload/f_auto,q_auto/v1/propertyimages/1/11398/q3hq1lh9tepnvlxy05vg"
+                        alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Vaidehi</h2>
+                        <div class="data">
+                            <h3>People<br> <span>4 members</span></h3>
+                            <h3>Fee <br> <span>Rs.70,000</span></h3>
+                            <h3>Type <br><span>Common</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Seat
+                                Availability</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="cards" id="card">
+                <div class="imgBox">
+                    <img src="https://th.bing.com/th/id/OIP.byjDa1oOcrMOL1saD-CqkgHaE8?pid=ImgDet&w=1000&h=668&rs=1" alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Pallavi</h2>
+                        <div class="data">
+                            <h3>People<br> <span>2 members</span></h3>
+                            <h3>Fee <br> <span>Rs.68,000</span></h3>
+                            <h3>Type <br> <span>common</span></h3>
+    
+    
+                        </div>
+                        <div class="ActionBtn">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Seat
+                                Availability</button>
+    
+    
+    
+                            </button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+    
+        </section>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+    
+            <div class="modal-dialog">
+
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Hostel Beds</h4>
+                    </div>
+                    <div class="modal-body">
+                        <marquee loop="-1" width="100%" scrollamount="5"><span style="color:red">red</span> button indicates
+                            bed already booked </marquee>
+                        <img src="https://a.hwstatic.com/image/upload/f_auto,q_auto/v1/propertyimages/1/11398/q3hq1lh9tepnvlxy05vg"
+                            alt="" width="70%" style="align-items: center;">
+                        <br><br>
+                        <strong>Room1</strong>
+                        <br>
+                        <button class="btn btn-success">Bed 1</button>
+                        <button class="btn btn-success">Bed 2</button>
+                        <button class="btn btn-danger">Bed 3</button>
+                        <button class="btn btn-success">Bed 4</button>
+                        <br>
+                        <strong>Room2</strong>
+                        <br>
+                        <button class=" btn btn-danger">Bed 1</button>
+                        <button class="btn btn-success">Bed 2</button>
+                        <button class="btn btn-success">Bed 3</button>
+                        <button class="btn btn-success">Bed 4</button>
+                    </div>
+                        <div class="modal-footer">
+                           <a href="registrationform.hbs"><button class="btn btn-success">book bed</button></a> 
+                           <!-- <button data-bs-toggle="modal" data-bs-target="#Mymodall">jivhvih</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+    </body>
+    
+    </html>                                

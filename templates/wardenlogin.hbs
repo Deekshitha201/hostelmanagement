@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="vishnulogo.png" />
+    <title>Hostel Allotments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .form-box
+        {
+            width:350px;
+            height:370px;
+            background-color:white;
+           box-shadow:0 10px 20px rgb(7, 68, 105);
+            left:50%;
+            top:50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            border-radius: 10px;
+            color:black;
+            padding: 70px 30px;
+            border: 2px solid black;
+        }
+        .logo
+        {
+            width:120px;
+            height:120px;
+            position: absolute;
+            top:-60px;
+            left:calc(50% - 60px)
+        }
+        h1{
+            margin:0;
+            padding: 0 0 20px;
+            font-size: 22px;
+            text-align: center;
+        }
+        .form-box p{
+            margin:0;
+            padding:0;
+            font-weight: bold;
+            margin-bottom:17px;
+        }
+        .form-box input{
+            width:100%;
+            margin-bottom:20px;
+        }
+         .form-box input[type="text"],input[type="password"] 
+        {
+            border: none;
+            background-color:transparent;
+            outline: none;
+             border-bottom: 2px solid black;
+             color:black;
+             font-size: 16px;
+
+        }
+         .form-box input[type="submit"]
+        {
+            border:none;
+            outline:none;
+            height:50px;
+            background-color: rgb(7, 68, 105) ;
+             color:white;
+            font-size: 18px;
+            font-weight:bold; 
+        } 
+       
+    </style>
+    
+</head>
+
+<body>
+      <form action="wardenlogin.hbs" method="post" onsubmit="return validate()">
+        <div class="form-box">
+            <img src="https://github.com/sravya185/Hack/blob/main/profile_08blue.png?raw=true" alt="" class="logo">
+            <h1>Login Here</h1>
+            <p>Username</p>
+            <input type="text" name="user" placeholder="username" title="j khk" id="user" required>
+            <p>Password</p>
+            <input type="password" name="pword" id="pword" required>
+            <input type="submit" value="Login" >
+    <label for="" id="x" style="visibility:hidden">Enter the details</label>
+        </div> 
+      </form>
+</body>
+
+</html>
