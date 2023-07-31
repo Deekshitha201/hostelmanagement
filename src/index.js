@@ -2,18 +2,20 @@ const express=require('express')
 const app =express()
 const path=require("path")
 const hbs=require("hbs")
+const cors = require("cors")
 const collection=require("./mongodb")
 const collection2=require("./mongodb2")
 const tempelatePath=path.join(__dirname,'../templates')
 app.use(express.json())
+app.use(cors())
 app.set("view engine","hbs")
 app.set("views",tempelatePath)
 app.use(express.urlencoded({extended:false}))
 app.get("/",(req,res)=>{
-    res.render("index")
+    res.render("home")
 })
-app.get("/index.hbs",(req,res)=>{
-    res.render("index")
+app.get("/home.hbs",(req,res)=>{
+    res.render("home")
 })
 app.get("/wardendisplay.hbs",(req,res)=>{
     res.render("wardendisplay")
@@ -35,6 +37,9 @@ app.get("/wardenlogin.hbs",(req,res)=>{
 })
 app.get("/wardendisplay.hbs",(req,res)=>{
     res.render("wardendisplay")
+})
+app.get('/getdata',(req,res)=>{
+    res.send("Hello");
 })
 app.post("/registrationform.hbs",async(req,res)=>{
     const data={

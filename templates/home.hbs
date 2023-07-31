@@ -367,7 +367,7 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.1666146608172!2d81.51990931478478!3d16.56811898857441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37cd4eb220051d%3A0xea3d7b50d0a1458!2sShri%20Vishnu%20Engineering%20College%20Autonomous!5e0!3m2!1sen!2sin!4v1669296313757!5m2!1sen!2sin" width="450px" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
   </footer>
-   
+   {{!-- <p id="message"></p> --}}
 
     <script>
       var counter=1;
@@ -378,6 +378,26 @@
           counter=1
         }
       },5000);
+
+        // api url
+        const api_url =
+            "https://sample-1-vpj9.onrender.com/getdata";
+
+        // Defining async function
+        async function getapi(url) {
+
+            // Storing response
+            const response = await fetch(url);
+
+            // Storing data in form of JSON
+            var data = await response.json();
+            console.log(data);
+            alert(data);
+            
+        }
+        // Calling that async function
+        getapi(api_url);
+    
     </script>
 </body>
 </html>
